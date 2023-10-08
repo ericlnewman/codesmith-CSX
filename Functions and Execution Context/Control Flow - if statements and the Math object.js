@@ -2,43 +2,22 @@ function closestToTheMark(player1, player2){
   const theMark = Math.floor(Math.random() * 100)
   console.log(`If theMark is ${theMark}...`);
   // ADD CODE HERE
-  
-  if(theMark > player1 && theMark > player2){
-    let dif1 = theMark - player1;
-    let dif2 = theMark - player2;
-    if(dif1 > dif2){
-      return "Player 2 is closest";
-    } else {
-      return "Player 1 is closest";
-    }
+  let difference1;
+  let difference2;
+  if(player1 < theMark){
+    difference1 = theMark-player1;
+  } else {
+    difference1 = player1-theMark;
   }
-  if(theMark > player1 && theMark < player2){
-    let dif1 = theMark - player1;
-    let dif2 = player2 - theMark;
-    if(dif1 > dif2){
-      return "Player 2 is closest";
-    } else {
-      return "Player 1 is closest";
-    }
+  if(player2 < theMark){
+    difference2 = theMark-player2;
+  } else {
+    difference2 = player2-theMark;
   }
-    if(theMark < player1 && theMark > player2){
-    let dif1 = player1 - theMark;
-    let dif2 = theMark - player2;
-    if(dif1 > dif2){
-      return "Player 2 is closest";
-    } else {
-      return "Player 1 is closest";
-    }
-    }
-    if(theMark < player1 && theMark < player2){
-    let dif1 = player1 - theMark;
-    let dif2 = player2 - theMark;
-    if(dif1 > dif2){
-      return "Player 2 is closest";
-    } else {
-      return "Player 1 is closest";
-    }
+  if(difference1 < difference2){
+    return "Player 1 is closest";
   }
+  return "Player 2 is closest";
 }
 
 // Uncomment the line below to check your work!
