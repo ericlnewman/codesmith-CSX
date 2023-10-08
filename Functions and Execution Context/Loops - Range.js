@@ -2,18 +2,17 @@ function getTheRange(arr){
   // ADD CODE HERE
   let low = arr[0];
   let high = arr[0];
-  let range = [];
-  for(let num in arr){
-    if(low > arr[num]){
-      low = arr[num];
+  for(let i of arr){
+    if(i < low){
+      low = i;
     }
-    if(high < arr[num]){
-      high = arr[num];
+    if(i > high){
+      high = i;
     }
   }
-  let dif = high - low;
-  range.push(low, high, dif);
-  return range;
+  const difference = high - low;
+  const newArray = [low, high, difference];
+  return newArray;
 }
 
 // Uncomment these to check your work!
