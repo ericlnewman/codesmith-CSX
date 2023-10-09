@@ -1,18 +1,14 @@
 function arrayBuilder(obj) {
   // ADD CODE HERE
-  let arr = [];
-	for(let key in obj){
-    if(obj.hasOwnProperty(key)){
-      let n = 0;
-      while(n < obj[key]){
-        arr.push(key);
-        n++;
-      }
+  const result = [];
+  for(let o in obj){
+    for(let i = 0; i < obj[o]; i++){
+      result.push(o);
     }
   }
-  return arr;
+  return result;
 }
 
 // Uncomment these to check your work!
- console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
-// console.log(arrayBuilder({})); // => []
+console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
+ console.log(arrayBuilder({})); // => []
