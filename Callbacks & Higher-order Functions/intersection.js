@@ -1,17 +1,12 @@
 // ADD CODE HERE
-function intersection(arrays){
-  let acc = arrays.pop();
-  while(arrays.length){
-    const current = arrays.pop();
-    const newArray = [];
-    current.forEach((element)=>{
-      if(acc.includes(element)) newArray.push(element);
-    })
-    acc = newArray;
+function intersection(arr){
+  let result = arr[0];
+  for(let i = 0; i < arr.length; i++){
+    const current = arr[i];
+    result = result.filter((element) => current.includes(element));
   }
-  return acc;
+  return result;
 }
-
 // Uncomment these to check your work!
 const arr1 = [5, 10, 15, 20];
 const arr2 = [15, 88, 1, 5, 7];
