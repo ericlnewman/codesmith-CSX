@@ -1,8 +1,15 @@
 // ADD CODE HERE
-function union(arrays){
-  // assign an accumulator, or variable that keeps track
-  const arr = [...new Set([...arrays[0],...arrays[1], ...arrays[3]])];
-  return arr;
+function union(arr){
+  // create each element of the array of arrays into a single array
+  const array = [].concat(...arr);
+  let result = [];
+  for(let i = 0; i < array.length; i++){
+    const current = array[i];
+    if(!(result.includes(current))){
+      result.push(current);
+    }
+  }
+  return result;
 }
 // Uncomment these to check your work!
 const arr1 = [5, 10, 15];
