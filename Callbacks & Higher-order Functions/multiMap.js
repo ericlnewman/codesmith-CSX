@@ -1,18 +1,15 @@
 // ADD CODE HERE
-function multiMap(arrOfValues, arrOfCallbacks){
-  let arrOfObj = [];
-  for (let i = 0; i < arrOfValues.length; i++) {
-    const value = arrOfValues[i];
-    const resultArr = [];
-    for (let j = 0; j < arrOfCallbacks.length; j++) {
-      const callback = arrOfCallbacks[j];
-       resultArr.push(callback(value));
+function multiMap(array1, array2){
+  const obj = {};
+  const arr = [];
+  for(let i = 0; i < array1.length; i++){
+    for(let j = 0; j < array2.length; j++){
+      const callback = array2[j];
+        arr.push(callback(array1[i]));
     }
-
-    arrOfObj.push(resultArr);
+    obj[array1[i]] = arr;
   }
-
-  return arrOfObj;
+  return obj;
 }
 // Uncomment these to check your work!
 function uppercaser(str) { return str.toUpperCase(); }
