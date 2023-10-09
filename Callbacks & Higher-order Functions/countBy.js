@@ -1,24 +1,17 @@
 // ADD CODE HERE
 function countBy(array, callback){
-  
-  // Iterate through the array
-  for (const element of array) {
-    // Apply the callback function to get the category
-    const category = callback(element);
 
-    // Check if the category exists in the result object
-    if (result.hasOwnProperty(category)) {
-      // Increment the count for the category
-      result[category]++;
+  const obj = {};
+  for(let i of array){
+		const c = callback(i);
+    if(obj[c] === undefined){
+      obj[c] = 1;
     } else {
-      // Initialize the count for the category to 1
-      result[category] = 1;
+      obj[c]++;
     }
   }
-
-  return result;
+  return obj;
 }
-
 // Uncomment these to check your work!
 function evenOdd(n) {
   if (n % 2 === 0) return 'even';
