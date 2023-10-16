@@ -1,8 +1,7 @@
 // ADD CODE HERE
-function defineFirstArg(func, arg){
-  const savedArg = arg;
-  return (...arg) =>{
-    return func(savedArg, ...arg);
+function defineFirstArg(callback, argument){
+  return (...args) =>{
+   return callback(argument, ...args);
   }
 }
 // Uncomment these to check your work!
