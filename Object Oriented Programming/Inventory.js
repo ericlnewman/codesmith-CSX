@@ -3,7 +3,8 @@ function Inventory(item, price) {
   this[item] = {price: price, quantity: 1 };
   Inventory.prototype.addItem = (item, price) => {
     if(this[item]){
-      this[item].quantity++;
+      this[item].quantity++;    // this must first check if this particular key item exists
+
       this[item].price = price;
     } else {
       this[item] = {price: price, quantity: 1};
