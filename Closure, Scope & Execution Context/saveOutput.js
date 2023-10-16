@@ -1,19 +1,21 @@
 // ADD CODE HERE
-// create a function saveOutput that has two arguments, a callback function and a string
-function saveOutput(callback, string){
-  	// create an object
-	const cache = {};
-	// return a function that when a string is passed as an argument, all previous entries will be returned as key value pairs
-	return (key) => {
-    let value = callback(key);
-    if(typeof key === "number"){
-      	cache[key] = value;
-      return value;
-    } else {
-       return cache;
+// create a function that takes a callback function and a string as a password
+function saveOutput(callback, password){
+  // create an object to hold the keys and values of the callback arguements and the function preformed on the arguemnts as values
+  const cache = {};
+	// return a function that acts just as the passed in function, but will return the object with all
+  // previous passed in key/values when the password is an argument
+  return (key) => {
+    if(key === password){
+      return cache;
     }
+    const value = callback(key);
+    cache[key] = value;
+    return value;
   }
+	
 }
+	
 
 // Uncomment these to check your work!
 const multiplyBy2 = function(num) { return num * 2; };
