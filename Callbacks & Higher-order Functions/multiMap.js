@@ -1,13 +1,14 @@
 // ADD CODE HERE
-function multiMap(array1, array2){
-  const obj = {};
-  const arr = [];
-  for(let i = 0; i < array1.length; i++){
-    for(let j = 0; j < array2.length; j++){
-      const callback = array2[j];
-        arr.push(callback(array1[i]));
+function multiMap(arr1, arr2, obj = {}){
+  for(let i = 0; i < arr1.length; i++){
+    const newArray = [];
+    const element = arr1[i];
+    for(let j = 0; j < arr1.length; j++){
+    	const callback = arr2[j];
+      let newResult = callback(element);
+    	newArray.push(newResult);
+    	obj[element] = newArray;
     }
-    obj[array1[i]] = arr;
   }
   return obj;
 }
