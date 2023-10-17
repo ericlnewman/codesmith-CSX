@@ -1,32 +1,36 @@
 class Chain {
-	// add code chere
+	// add code here
   constructor(name){
     this.name = name;
     this.totalStores = 0;
     this.locations = [];
-  }
-  openStore(str1, str2){
-    const newStore = new Franchise(str1, str2)
-    this.locations.push(newStore);
-    this.totalStores++
-  }
-  closeStore(str){
+  };
+  openStore(owner, location){
+    const franchise = new Franchise(owner, location);
+    this.locations.push(franchise);
+    this.totalStores++;
+  };
+  closeStore(location){
    for(let i = 0; i < this.locations.length; i++){
-     if(this.locations[i].city === str){
-       this.locations.splice(i, 1);
+     const current = this.locations[i].city;
+     if(current === location){
+       this.locations.splice(i,1);
        this.totalStores--;
+       console.log(this.name + " closed the store in " + location+"!")
+       return;
      }
-   }
-    console.log(this.name + " closed the store in " + str + ".");
-  }
+    }
+    console.log(this.name + " doesn\'t have a store in " + location);
+    return;
+  };
 }
 
 class Franchise {
     //add code here
-  constructor(owner, city){
-    this.owner = owner;
-    this.city = city;
-  }
+  	constructor(owner, city){
+      this.owner = owner;
+      this.city = city;
+    }
 }
 
 
